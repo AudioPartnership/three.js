@@ -4,6 +4,29 @@
 
 class EventDispatcher {
 
+	constructor() {
+
+		this.refs = 1;
+
+	}
+
+	ref() {
+
+		++this.refs;
+		return this;
+
+	}
+
+	unref() {
+
+		if ( !--this.refs) this.dispose();
+		return this;
+
+	}
+
+	dispose() {
+	}
+
 	addEventListener( type, listener ) {
 
 		if ( this._listeners === undefined ) this._listeners = {};
